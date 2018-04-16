@@ -1,7 +1,7 @@
 import pandas as pd
 df = pd.read_csv("/home/socomo/Desktop/NLP/train.csv")
 
-df.drop(df.columns[[0,1,2]], axis=1, inplace=True)
+#df.drop(df.columns[[0,1,2]], axis=1, inplace=True)
 pd.set_option('display.max_colwidth', -1)
 pd.set_option('display.max_rows', 500)
 
@@ -148,4 +148,6 @@ lda1 = LatentDirichletAllocation(n_components=no_topics, max_iter=5, learning_me
 lda2 = LatentDirichletAllocation(n_components=no_topics, max_iter=5, learning_method='online', learning_offset=50.,random_state=0).fit(tf2)
 
 
-print(lda1)
+import pickle
+feature_1_out=open("f1_new.pickle","wb")
+pickle.dump(df2,feature_1_out)
